@@ -1,3 +1,29 @@
+-- Find employees who are Terminated and from Production Department
+SELECT Employee_Name
+FROM hrdataset
+WHERE Termd = 1 
+AND Department = 'Production';
+
+-- Find top 5 highest Salary employees
+SELECT Employee_Name, Salary
+FROM hrdataset
+ORDER BY Salary DESC
+LIMIT 5;
+
+-- Find max Salary and min Salary in whole table
+SELECT max(Salary) as Max_salary,
+min(Salary) as Min_salary
+FROM hrdataset;
+
+-- Find employees with Salary more than 100000
+SELECT Employee_Name, Salary
+FROM hrdataset
+WHERE Salary > 100000;
+
+-- Find distinct ManagerName
+SELECT DISTINCT ManagerName
+FROM hrdataset;
+
 -- Departments with more than 50 employees (CTE + filter)
 WITH Dept AS (
   SELECT Department, COUNT(Employee_Name) as total_employees
