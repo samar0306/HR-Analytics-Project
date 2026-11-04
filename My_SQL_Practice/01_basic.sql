@@ -1,3 +1,21 @@
+-- Find employees with more than 5 Absences
+SELECT EmpID, Employee_Name, Absences
+FROM hrdataset
+WHERE Absences > 5;
+
+-- Count per TermReason only for terminated employees
+SELECT TermReason, count(*) as Number
+FROM hrdataset
+WHERE Termd = 1
+GROUP BY TermReason
+ORDER BY Number DESC;
+
+-- Find average EmpSatisfaction per Department
+SELECT Department, round(avg(EmpSatisfaction),1) as Satisfaction_score
+FROM hrdataset
+GROUP BY Department
+ORDER BY Satisfaction_score DESC;
+
 -- Find employees who are Terminated and from Production Department
 SELECT Employee_Name
 FROM hrdataset
